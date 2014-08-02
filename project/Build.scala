@@ -9,9 +9,11 @@ object ProjectBuild extends Build {
     id = "root",
     base = file("."),
     settings = Project.defaultSettings ++ graphSettings ++ assemblySettings ++ Seq(
+      organization := "com.tresata",
       name := "spark-columnar",
       version := "0.1-SNAPSHOT",
       scalaVersion := "2.10.4",
+      retrievePattern := "[artifact](-[revision])(-[classifier]).[ext]",
       retrieveManaged := true,
       libraryDependencies ++= Seq(
         "com.chuusai" % "shapeless_2.10.4" % "2.0.0",
